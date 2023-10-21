@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterDeath : MonoBehaviour
 {
@@ -23,7 +24,9 @@ public class CharacterDeath : MonoBehaviour
 
     private void Die()
     {
-        _rb.bodyType = RigidbodyType2D.Static;
         _animator.SetTrigger("isDead");
+        _rb.bodyType = RigidbodyType2D.Static;
+        
+        SceneManager.LoadScene("MainScreen");
     }
 }
