@@ -29,7 +29,7 @@ public class CharacterDeath : MonoBehaviour
         _rb.bodyType = RigidbodyType2D.Static;
 
         yield return new WaitForSeconds(_DeathAnimation.length);
-
+        Destroy(gameObject);
         SceneManager.LoadScene(1);
     }
 }

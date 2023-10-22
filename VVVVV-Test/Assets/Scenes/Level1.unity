@@ -136,10 +136,10 @@ GameObject:
   - component: {fileID: 135884967}
   - component: {fileID: 135884966}
   - component: {fileID: 135884965}
+  - component: {fileID: 135884972}
+  - component: {fileID: 135884971}
   - component: {fileID: 135884963}
   - component: {fileID: 135884970}
-  - component: {fileID: 135884971}
-  - component: {fileID: 135884972}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -325,6 +325,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875abfc2e0f592d409817f0279b584b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawnEntrance: {fileID: 297026686}
+  _spawnExit: {fileID: 1728615925}
+  _isNextLevel: 1
 --- !u!114 &135884971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,10 +354,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 135884962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd423f6b91fb657418d9da9d4e706c80, type: 3}
+  m_Script: {fileID: 11500000, guid: e295ec8eec5c3184fad4f7c04da8e29a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &591558054
+--- !u!1 &297026686
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -362,88 +365,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 591558056}
-  - component: {fileID: 591558055}
-  - component: {fileID: 591558057}
+  - component: {fileID: 297026687}
   m_Layer: 0
-  m_Name: Exit
+  m_Name: EntranceSpawn
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &591558055
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591558054}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.002357483}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 11.234154}
-  m_EdgeRadius: 0
---- !u!4 &591558056
+--- !u!4 &297026687
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591558054}
+  m_GameObject: {fileID: 297026686}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.87, y: -8.01, z: -0.058734514}
+  m_LocalPosition: {x: 20.53, y: -8.02, z: 0.39944655}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &591558057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591558054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3dd13c84b7775146b6a6315c1784d8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &642232228
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +504,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 642232228}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd423f6b91fb657418d9da9d4e706c80, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e0bce9da220d004a95349cfdfb58933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1230425497
@@ -725,7 +669,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8781d8e35e3944a43b602617626413fc, type: 2}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1366,7 +1310,27 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 22, y: -11, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 19, y: -8, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 22, y: -8, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
@@ -1386,15 +1350,25 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 22, y: -5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 3
+  - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: 55d9411766d1a2748b1cad83333337cf, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 3
+  - m_RefCount: 6
     m_Data: {fileID: 494255763, guid: ef0a6d538915bbc448d12d423390a8f0, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 3
+  - m_RefCount: 6
     m_Data:
       e00: 1
       e01: 0
@@ -1413,13 +1387,13 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 3
+  - m_RefCount: 6
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Origin: {x: -26, y: -11, z: 0}
-  m_Size: {x: 46, y: 11, z: 1}
+  m_Size: {x: 49, y: 11, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -1498,7 +1472,7 @@ GameObject:
   - component: {fileID: 1418956342}
   m_Layer: 0
   m_Name: Entrance
-  m_TagString: Untagged
+  m_TagString: Entrance
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1557,7 +1531,7 @@ Transform:
   m_GameObject: {fileID: 1418956339}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.67, y: -8.01, z: -0.058734514}
+  m_LocalPosition: {x: 22.95, y: -8.07, z: -0.058734514}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1575,12 +1549,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8200d86c0def94e8ccca7da9edc0b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1728615925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1728615926}
+  m_Layer: 0
+  m_Name: ExitSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1728615926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728615925}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -27.24, y: -11.46, z: 0.39944655}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1391948526}
-  - {fileID: 135884969}
   - {fileID: 642232232}
   - {fileID: 1418956341}
-  - {fileID: 591558056}
+  - {fileID: 297026687}
+  - {fileID: 1728615926}
+  - {fileID: 135884969}

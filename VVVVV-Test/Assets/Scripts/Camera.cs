@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class Camera : MonoBehaviour
 {
-    private static GameManager Instance;
+    private static Camera Instance;
+
 
     private void Awake()
     {
@@ -18,10 +17,4 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
     }
-
-    public void ChangeScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
 }
-

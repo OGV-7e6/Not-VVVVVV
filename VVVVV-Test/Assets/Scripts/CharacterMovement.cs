@@ -8,7 +8,7 @@ using UnityEngine.Windows;
 public class CharacterMovement : MonoBehaviour
 {
     private Animator _animator;
-    private Transform _trasform;
+    private Transform _transform;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _groundLayer;
@@ -18,13 +18,14 @@ public class CharacterMovement : MonoBehaviour
     private float _speed;
     private int _gravity;
     private bool _isFacingRight;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         _animator = gameObject.GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
-        _trasform = GetComponent<Transform>();
+        _transform = GetComponent<Transform>();
 
         _speed = 14f;
         _gravity = 8;
@@ -46,7 +47,7 @@ public class CharacterMovement : MonoBehaviour
         if ((UnityEngine.Input.GetKeyDown(KeyCode.Space) || UnityEngine.Input.GetKeyDown(KeyCode.Joystick1Button0)) && IsGrounded())
         {
             _isFacingRight = !_isFacingRight;
-            _trasform.Rotate(0, 0, 180);
+            _transform.Rotate(0, 0, 180);
             _gravity *= -1;
             _rb.gravityScale = _gravity;
         }

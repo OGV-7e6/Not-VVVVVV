@@ -5,13 +5,26 @@ using UnityEngine;
 public class FocusObject : MonoBehaviour
 {
     private Transform _trasform;
-    [SerializeField] private GameObject _focusedObject;
+    [SerializeField] private string _focusedObjectName;
+    public GameObject _focusedObject;
+    private static FocusObject Instance;
 
-    // Start is called before the first frame update
-    void Start()
+    
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        if (Instance != null) Destroy(gameObject);
+        else Instance = this;
+
+        
+    }
+    private void Start()
     {
         _trasform = GetComponent<Transform>();
+        /*_focusedObject = ;*/
     }
+
 
     // Update is called once per frame
     void Update()
