@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 283380433}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -325,6 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68fd1a2a582326d4ba3f5a5d9c9ada69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _DeathAnimation: {fileID: 7400000, guid: b4a02f55e540e67408f27b23f1472fea, type: 2}
   _rb: {fileID: 283380430}
   _Tag: Obstacle
 --- !u!1 &519420028
@@ -446,7 +447,7 @@ GameObject:
   - component: {fileID: 526087787}
   - component: {fileID: 526087789}
   m_Layer: 0
-  m_Name: TilemapPinchos
+  m_Name: TilemapSpikes
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -753,7 +754,7 @@ GameObject:
   - component: {fileID: 1099597638}
   - component: {fileID: 1099597637}
   m_Layer: 0
-  m_Name: Entrance
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1688,7 +1689,7 @@ GameObject:
   - component: {fileID: 2098077071}
   - component: {fileID: 2098077070}
   m_Layer: 0
-  m_Name: Exit
+  m_Name: Entrance
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Windows;
 
-public class CharacterAnimations : MonoBehaviour
+public class CharacterMovement : MonoBehaviour
 {
     private Animator _animator;
     private Transform _trasform;
