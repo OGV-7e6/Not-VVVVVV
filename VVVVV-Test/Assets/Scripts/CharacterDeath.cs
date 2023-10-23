@@ -9,6 +9,8 @@ public class CharacterDeath : MonoBehaviour
     [SerializeField] private AnimationClip _DeathAnimation;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private string _Tag;
+    [SerializeField] private GameObject Camera;
+    [SerializeField] private GameObject GameManager;
 
 
     // Start is called before the first frame update
@@ -30,6 +32,8 @@ public class CharacterDeath : MonoBehaviour
 
         yield return new WaitForSeconds(_DeathAnimation.length);
         Destroy(gameObject);
-        SceneManager.LoadScene(1);
+        Destroy(Camera);
+        Destroy(GameManager);
+        SceneManager.LoadScene(0);
     }
 }

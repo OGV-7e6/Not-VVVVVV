@@ -27,13 +27,10 @@ public class CharacterMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _transform = GetComponent<Transform>();
 
-        _speed = 14f;
+        _speed = 18f;
         _gravity = 8;
         _rb.gravityScale = _gravity;
         _isFacingRight = true;
-        
-
-
     }
 
     // Update is called once per frame
