@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class ExitSceneScript : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("Entrance"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+        if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("Exit"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }

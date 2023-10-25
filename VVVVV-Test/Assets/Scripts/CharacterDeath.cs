@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,8 +10,6 @@ public class CharacterDeath : MonoBehaviour
     [SerializeField] private AnimationClip _DeathAnimation;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private string _Tag;
-    [SerializeField] private GameObject Camera;
-    [SerializeField] private GameObject GameManager;
 
 
     // Start is called before the first frame update
@@ -20,20 +19,23 @@ public class CharacterDeath : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(_Tag)) StartCoroutine(Die());
+        if (collision.gameObject.CompareTag(_Tag))  
+        {
+            StartCoroutine(Die());
+        }
     }
 
     IEnumerator Die()
     {
-        _animator.SetTrigger("isDead");
+        _animator.SetBool("isAlive", false);
         _rb.bodyType = RigidbodyType2D.Static;
+        _animator.SetTrigger("isDead");
 
         yield return new WaitForSeconds(_DeathAnimation.length);
-        Destroy(gameObject);
-        Destroy(Camera);
-        Destroy(GameManager);
-        SceneManager.LoadScene(0);
+
+        _rb.bodyType = RigidbodyType2D.Dynamic;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

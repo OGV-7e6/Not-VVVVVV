@@ -462,7 +462,7 @@ Camera:
   near clip plane: 0.01
   far clip plane: 1000
   field of view: 120
-  orthographic: 0
+  orthographic: 1
   orthographic size: 15.6230135
   m_Depth: -1
   m_CullingMask:
@@ -518,8 +518,6 @@ GameObject:
   - component: {fileID: 1230425503}
   - component: {fileID: 1230425502}
   - component: {fileID: 1230425501}
-  - component: {fileID: 1230425500}
-  - component: {fileID: 1230425499}
   m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
@@ -542,76 +540,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1391948526}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!66 &1230425499
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230425497}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: e838788173cfcc5448393c9410f80a2a, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths: []
-  m_CompositePaths:
-    m_Paths: []
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
-  m_UseDelaunayMesh: 0
-  m_CompositeGameObject: {fileID: 1230425497}
---- !u!50 &1230425500
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230425497}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: e838788173cfcc5448393c9410f80a2a, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!19719996 &1230425501
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -1140,7 +1068,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.002357483}
@@ -1180,7 +1108,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1418956339}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d8200d86c0def94e8ccca7da9edc0b7, type: 3}
+  m_Script: {fileID: 11500000, guid: a3dd13c84b7775146b6a6315c1784d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1728615925

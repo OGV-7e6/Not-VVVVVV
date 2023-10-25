@@ -9,12 +9,12 @@ public class Character : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         if (Instance != null)
             Destroy(gameObject);
         else
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 }
