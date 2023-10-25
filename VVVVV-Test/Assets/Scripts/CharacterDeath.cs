@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +15,14 @@ public class CharacterDeath : MonoBehaviour
     {
         _animator = gameObject.GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag(_Tag))
+        {
+            StartCoroutine(Die());
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

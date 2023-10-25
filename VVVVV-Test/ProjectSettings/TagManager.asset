@@ -8,6 +8,8 @@ TagManager:
   - Entrance
   - Exit
   - ProjectileReset
+  - EnemyTurn
+  - EnemyJump
   layers:
   - Default
   - TransparentFX

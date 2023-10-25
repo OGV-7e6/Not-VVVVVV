@@ -1,6 +1,7 @@
+
 using UnityEngine;
 
-public class CharacterMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     private Animator _animator;
     private Transform _transform;
@@ -8,12 +9,10 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _groundLayer;
 
-
-    private float _horizontal;
     private float _speed;
     private int _gravity;
     private bool _isFacingRight;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,24 +30,8 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Movimiento
-        _horizontal = Input.GetAxisRaw("Horizontal");
-        
-        if (_isFacingRight && _horizontal < 0f || !_isFacingRight && _horizontal > 0f) Flip();
-
-
-        //Cambio de gravedad
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && IsGrounded())
-        {
-            Flip();
-            _isFacingRight = !_isFacingRight;
-            _transform.Rotate(0, 0, 180);
-            _gravity *= -1;
-            _rb.gravityScale = _gravity;
-        }
-
         //AnimacionMovimiento
-        if (_horizontal != 0) _animator.SetBool("isMoving", true);
+        if (_rb.velocity.x != 0f) _animator.SetBool("isMoving", true);
         else _animator.SetBool("isMoving", false);
 
         //AnimacionCaida
@@ -58,19 +41,37 @@ public class CharacterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rb.velocity = new Vector2(_horizontal * _speed, _rb.velocity.y);
+        _rb.velocity = new Vector2(_speed, _rb.velocity.y);
     }
 
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
     }
-    private void Flip()
+
+    private void flip()
     {
         _isFacingRight = !_isFacingRight;
         Vector3 localScale = transform.localScale;
         localScale.x *= -1f;
         transform.localScale = localScale;
     }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyTurn"))
+        {
+            flip();
+            _speed *= -1f;
+        }
 
+        //Cambio de gravedad
+        if (collision.gameObject.CompareTag("EnemyJump"))
+        {
+            _transform.Rotate(0, 0, 180);
+            _gravity *= -1;
+            _rb.gravityScale = _gravity;
+            flip();
+        }
+    }
 }
