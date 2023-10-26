@@ -6,18 +6,16 @@ public class ProjectileScript : MonoBehaviour
 {
     [SerializeField] private Transform _ProjectileSpawner;
     [SerializeField] private float speed;
-    private Rigidbody2D _rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-         _rb.velocity = new Vector2(speed * -1,0);
+        gameObject.transform.Translate(speed * Time.deltaTime, 0, 0);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
