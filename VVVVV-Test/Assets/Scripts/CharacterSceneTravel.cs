@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+ using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterSceneTravel : MonoBehaviour
 {
@@ -9,10 +8,13 @@ public class CharacterSceneTravel : MonoBehaviour
     private GameObject _spawnExit;
     private bool _isNextLevel = false;
     private Animator _animator;
+    private Rigidbody2D _rb;
+
     private void OnLevelWasLoaded(int level)
     {
         _animator = GetComponent<Animator>();
         _transform = GetComponent<Transform>();
+        _rb = GetComponent<Rigidbody2D>();
 
         //Encuentra los puntos de spawn (si existen) y los asigna a sus variables respectivas
         _spawnEntrance = GameObject.Find("EntranceSpawn");
@@ -22,6 +24,7 @@ public class CharacterSceneTravel : MonoBehaviour
         if (_isNextLevel) _transform.position = _spawnEntrance.transform.position;
         else _transform.position = _spawnExit.transform.position;
         _animator.SetBool("isAlive", true);
+        if (SceneManager.GetActiveScene().name == "Level_Final") _rb.bodyType = RigidbodyType2D.Static;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
