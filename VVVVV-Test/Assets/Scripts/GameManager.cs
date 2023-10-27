@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager Instance;
-    public string _levelBeforePause;
+    [SerializeField] private GameObject _canvasPause;
+
+
     private void Awake()
     {
         if (Instance != null)
@@ -22,13 +23,15 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && 
-            (SceneManager.GetActiveScene().name != "MainMenu" ||
-            SceneManager.GetActiveScene().name != "PauseMenu" ||
-            SceneManager.GetActiveScene().name != "Level_Final"))
+            SceneManager.GetActiveScene().name != "MainMenu" &&
+            SceneManager.GetActiveScene().name != "Level_Final")
         {
-            _levelBeforePause = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene("PauseMenu");
+            _canvasPause.SetActive(true);
         }
+
+
+        if (SceneManager.GetActiveScene().name == "MainMenu") Character.Instance.gameObject.SetActive(false);
+        else Character.Instance.gameObject.SetActive(true);
     }
 
 
@@ -37,13 +40,15 @@ public class GameManager : MonoBehaviour
     public void sceneChanger(string scene)
     {
         SceneManager.LoadScene(scene);
+        _canvasPause.SetActive(false);
     }
     public void resumeGame()
     {
-        SceneManager.LoadScene(_levelBeforePause);
+        _canvasPause.SetActive(false);
     }
     public void exitGame() 
     {
         Application.Quit();
+        _canvasPause.SetActive(false);
     }
 }

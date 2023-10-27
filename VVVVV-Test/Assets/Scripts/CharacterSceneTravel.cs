@@ -24,6 +24,7 @@ public class CharacterSceneTravel : MonoBehaviour
         if (_isNextLevel) _transform.position = _spawnEntrance.transform.position;
         else _transform.position = _spawnExit.transform.position;
         _animator.SetBool("isAlive", true);
+
         if (SceneManager.GetActiveScene().name == "Level_Final") _rb.bodyType = RigidbodyType2D.Static;
     }
 
