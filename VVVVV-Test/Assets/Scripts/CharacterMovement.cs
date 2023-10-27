@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
@@ -7,9 +8,9 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private AudioSource _walkSound;
 
-
-    private float _horizontal;
+    public float _horizontal;
     private float _speed;
     private int _gravity;
     private bool _isFacingRight;
@@ -26,6 +27,8 @@ public class CharacterMovement : MonoBehaviour
         _gravity = 8;
         _rb.gravityScale = _gravity;
         _isFacingRight = true;
+        _walkSound.Play();
+        _walkSound.Pause();
     }
 
     // Update is called once per frame
@@ -48,8 +51,17 @@ public class CharacterMovement : MonoBehaviour
         }
 
         //AnimacionMovimiento
-        if (_horizontal != 0) _animator.SetBool("isMoving", true);
-        else _animator.SetBool("isMoving", false);
+        if (_horizontal != 0 && IsGrounded())
+        {
+
+            _walkSound.UnPause();
+            _animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            _walkSound.Pause();
+            _animator.SetBool("isMoving", false);
+        }
 
         //AnimacionCaida
         if (IsGrounded()) _animator.SetBool("isFalling", false);
@@ -59,6 +71,7 @@ public class CharacterMovement : MonoBehaviour
     private void FixedUpdate()
     {
         _rb.velocity = new Vector2(_horizontal * _speed, _rb.velocity.y);
+
     }
 
     private bool IsGrounded()

@@ -4,10 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class CharacterDeath : MonoBehaviour
 {
+    
     private Animator _animator;
-    [SerializeField] private AnimationClip _DeathAnimation;
+    [SerializeField] private AnimationClip _deathAnimation;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private string _Tag;
+    [SerializeField] private AudioSource _vfx;
 
 
     // Start is called before the first frame update
@@ -39,7 +41,9 @@ public class CharacterDeath : MonoBehaviour
         _rb.bodyType = RigidbodyType2D.Static;
         _animator.SetTrigger("isDead");
 
-        yield return new WaitForSeconds(_DeathAnimation.length);
+        _vfx.Play();
+
+        yield return new WaitForSeconds(_deathAnimation.length);
 
         _rb.bodyType = RigidbodyType2D.Dynamic;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

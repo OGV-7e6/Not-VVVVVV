@@ -7,6 +7,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private AudioSource _walkSound;
+    [SerializeField] private AudioSource _enemySound;
 
     private float _speed;
     private int _gravity;
@@ -20,10 +22,12 @@ public class EnemyMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _transform = GetComponent<Transform>();
 
-        _speed = 18f;
+        _speed = 20f;
         _gravity = 8;
         _rb.gravityScale = _gravity;
         _isFacingRight = true;
+        _walkSound.Play();
+        _enemySound.Play();
     }
 
     // Update is called once per frame

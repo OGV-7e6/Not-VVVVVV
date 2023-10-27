@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _canvasPause;
 
 
+
+
     private void Awake()
     {
         if (Instance != null)
@@ -28,12 +30,8 @@ public class GameManager : MonoBehaviour
         {
             _canvasPause.SetActive(true);
         }
-
-
-        if (SceneManager.GetActiveScene().name == "MainMenu") Character.Instance.gameObject.SetActive(false);
-        else Character.Instance.gameObject.SetActive(true);
     }
-
+        
 
 
     //UI

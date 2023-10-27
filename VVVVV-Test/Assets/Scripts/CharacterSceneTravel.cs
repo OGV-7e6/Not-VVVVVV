@@ -19,6 +19,7 @@ public class CharacterSceneTravel : MonoBehaviour
         //Encuentra los puntos de spawn (si existen) y los asigna a sus variables respectivas
         _spawnEntrance = GameObject.Find("EntranceSpawn");
         _spawnExit = GameObject.Find("ExitSpawn");
+        Debug.Log(GameObject.Find("ExitSpawn"));
 
         //Mueve al personaje a la posicion del spawn correspondiente.
         if (_isNextLevel) _transform.position = _spawnEntrance.transform.position;
@@ -27,7 +28,7 @@ public class CharacterSceneTravel : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Level_Final") _rb.bodyType = RigidbodyType2D.Static;
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Entrance")) _isNextLevel = false;

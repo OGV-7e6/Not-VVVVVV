@@ -19,4 +19,9 @@ public class Character : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "MainMenu") Destroy(Instance.gameObject);
+    }
 }
