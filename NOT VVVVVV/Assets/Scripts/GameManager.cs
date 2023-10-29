@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && 
+        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button7)) && 
             SceneManager.GetActiveScene().name != "MainMenu" &&
             SceneManager.GetActiveScene().name != "Level_Final")
         {
